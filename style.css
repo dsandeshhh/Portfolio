@@ -24,7 +24,7 @@ body {
     scrollbar-width: none; /* Hide scrollbar Firefox */
 }
 
-/* Hide scrollbar for Chrome, Safari, and Opera */
+/* Hide scrollbar for Chrome, Safari and Opera */
 .hbjhdh-slider::-webkit-scrollbar {
     display: none;
 }
@@ -35,6 +35,8 @@ body {
     object-fit: cover;
     object-position: center;
 }
+
+
 
 .hbjhdh-slider-nav {
     display: flex;
@@ -58,44 +60,3 @@ body {
 .hbjhdh-slider-nav a:hover {
     opacity: 1;
 }
-@media only screen and (max-width: 414px) {
-    .hbjhdh-slider-wrapper {
-        max-width: 100%;
-    }
-
-    .hbjhdh-slider {
-        flex-direction: column;
-    }
-
-    .hbjhdh-slider img {
-        height: auto;
-    }
-
-    .hbjhdh-slider-nav {
-        flex-direction: row;
-        bottom: 0;
-        transform: translateX(0);
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .hbjhdh-slider-wrapper {
-        max-width: 100%;
-    }
-
-    .hbjhdh-slider {
-        aspect-ratio: auto;
-        flex-direction: column;
-    }
-
-    .hbjhdh-slider img {
-        height: auto;
-    }
-
-    .hbjhdh-slider-nav {
-        flex-direction: row;
-        bottom: 0;
-        transform: translateX(0);
-    }
-}
-
