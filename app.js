@@ -1,40 +1,33 @@
-let slider = document.querySelector('.slider .list');
-let items = document.querySelectorAll('.slider .list .item');
-let next = document.getElementById('next');
-let prev = document.getElementById('prev');
-let dots = document.querySelectorAll('.slider .dots li');
+document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".hbjhdh-slider");
+    const sliderNav = document.querySelector(".hbjhdh-slider-nav");
 
-let lengthItems = items.length - 1;
-let active = 0;
-next.onclick = function(){
-    active = active + 1 <= lengthItems ? active + 1 : 0;
-    reloadSlider();
-}
-prev.onclick = function(){
-    active = active - 1 >= 0 ? active - 1 : lengthItems;
-    reloadSlider();
-}
-let refreshInterval = setInterval(()=> {next.click()}, 3000);
-function reloadSlider(){
-    slider.style.left = -items[active].offsetLeft + 'px';
-    // 
-    let last_active_dot = document.querySelector('.slider .dots li.active');
-    last_active_dot.classList.remove('active');
-    dots[active].classList.add('active');
+    let currentIndex = 0;
+    const totalSlides = document.querySelectorAll(".hbjhdh-slider img").length;
 
-    clearInterval(refreshInterval);
-    refreshInterval = setInterval(()=> {next.click()}, 3000);
+    function showSlide(index) {
+        currentIndex = index;
+        const offset = -index * 100 + "%";
+        slider.style.transform = "translateX(" + offset + ")";
+    }
 
-    
-}
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        showSlide(currentIndex);
+    }
 
-dots.forEach((li, key) => {
-    li.addEventListener('click', ()=>{
-         active = key;
-         reloadSlider();
-    })
-})
-window.onresize = function(event) {
-    reloadSlider();
-};
+    function createNavLinks() {
+        for (let i = 1; i <= totalSlides; i++) {
+            const link = document.createElement("a");
+            link.href = "#slide-" + i;
+            sliderNav.appendChild(link);
+        }
+    }
 
+    createNavLinks();
+    startAutoSlide();
+
+    function startAutoSlide() {
+        setInterval(nextSlide, 2000); // Change slide every 2000 milliseconds (2 seconds)
+    }
+});
