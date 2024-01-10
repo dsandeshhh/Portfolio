@@ -58,24 +58,15 @@ body {
 .hbjhdh-slider-nav a:hover {
     opacity: 1;
 }
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 414px) {
     .hbjhdh-slider-wrapper {
         max-width: 100%;
     }
 
     .hbjhdh-slider {
-        aspect-ratio: auto;
-    }
-}
-/* Add this at the end of your existing CSS */
-@media only screen and (max-width: 768px) {
-    .hbjhdh-slider {
         flex-direction: column;
-        aspect-ratio: unset;
     }
-    
+
     .hbjhdh-slider img {
         height: auto;
     }
@@ -86,3 +77,25 @@ body {
         transform: translateX(0);
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .hbjhdh-slider-wrapper {
+        max-width: 100%;
+    }
+
+    .hbjhdh-slider {
+        aspect-ratio: auto;
+        flex-direction: column;
+    }
+
+    .hbjhdh-slider img {
+        height: auto;
+    }
+
+    .hbjhdh-slider-nav {
+        flex-direction: row;
+        bottom: 0;
+        transform: translateX(0);
+    }
+}
+
